@@ -3,7 +3,7 @@ services:
     name: sinhala-ner-labelstudio
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: label-studio start --host 0.0.0.0 --port $PORT --log-level DEBUG
+    startCommand: label-studio start --host 0.0.0.0 --port $PORT
     envVars:
       - key: LABEL_STUDIO_USERNAME
         value: admin@yourgroup.com
@@ -11,13 +11,11 @@ services:
         value: yourpassword123
       - key: LABEL_STUDIO_HOST
         value: https://labelstudio-eyax.onrender.com
-      - key: DEBUG
-        value: "True"
       - key: CSRF_COOKIE_SECURE
-        value: "False"
+        value: "0"
       - key: CSRF_COOKIE_HTTPONLY
-        value: "False"
-      - key: DJANGO_SETTINGS_MODULE
-        value: label_studio.settings.label_studio
-      - key: LABEL_STUDIO_DISABLE_SIGNUP_WITHOUT_LINK
-        value: "false"
+        value: "0"
+      - key: CSRF_TRUSTED_ORIGINS
+        value: https://labelstudio-eyax.onrender.com
+      - key: ALLOWED_HOSTS
+        value: labelstudio-eyax.onrender.com
