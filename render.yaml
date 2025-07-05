@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: sinhala-ner-labelstudio
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: label-studio start --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: LABEL_STUDIO_USERNAME
+        value: admin@yourgroup.com
+      - key: LABEL_STUDIO_PASSWORD
+        value: yourpassword123
