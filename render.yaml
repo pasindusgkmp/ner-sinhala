@@ -3,9 +3,15 @@ services:
     name: sinhala-ner-labelstudio
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: label-studio start --host 0.0.0.0 --port $PORT
+    startCommand: label-studio start --host 0.0.0.0 --port $PORT --log-level DEBUG
     envVars:
       - key: LABEL_STUDIO_USERNAME
         value: admin@yourgroup.com
       - key: LABEL_STUDIO_PASSWORD
         value: yourpassword123
+      - key: LABEL_STUDIO_HOST
+        value: https://sinhala-ner-labelstudio.onrender.com
+      - key: DEBUG
+        value: "True"
+      - key: CSRF_COOKIE_SECURE
+        value: "False"
